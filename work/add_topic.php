@@ -28,8 +28,8 @@ header("Content-type: text/html; charset=utf-8");
 	//获得用户信息
 	$username = $_SESSION['username'];
 	$sql = "SELECT * from forum_user WHERE username='$username'";
-	$result = mysql_query($sql);
-	$info = mysql_fetch_array($result);
+	$result = $mysqli->query($sql);
+	$info = $result->fetch_array($result);
 
 	//取得传递来的值
 	//标题
@@ -84,7 +84,7 @@ header("Content-type: text/html; charset=utf-8");
 
 	//将数据插入数据库
 	$sql="INSERT INTO forum_topic(topic, detail, name,email,datetime,sticky) VALUES('$topic', '$detail', '$name', '$email',NOW(),'$sticky')";
-	$result=mysql_query($sql);
+	$result=$mysqli->query($sql);
 	if($result)
 	{
 		//成功后，跳转页面到论坛主页面

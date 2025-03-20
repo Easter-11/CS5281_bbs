@@ -38,7 +38,7 @@ header("Content-type: text/html; charset=utf-8");
 		  WHERE username = '$username'";
   }
 
-  $result=mysql_query($sql);
+  $result=$mysqli->query($sql);
 
   if($result){
 ?>

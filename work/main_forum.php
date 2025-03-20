@@ -36,7 +36,7 @@ header("Content-type: text/html; charset=utf-8");
   //检索记录，按照置顶标记和时间排序
   $sql = "SELECT * FROM forum_topic 
 	    ORDER BY sticky DESC, datetime DESC LIMIT $start, $each_page";
-  $result = mysql_query($sql);
+  $result = $mysqli->query($sql);
 ?>
 <div class="list">
 <h2>主题列表</h2>
@@ -51,7 +51,7 @@ header("Content-type: text/html; charset=utf-8");
 
 <?php
   //循环输出输出记录列表
-  while($rows=mysql_fetch_array($result))
+  while($rows=$result->fetch_array($result))
   { 
 ?>
 <tr bgcolor="#ffc">
@@ -104,8 +104,8 @@ header("Content-type: text/html; charset=utf-8");
 
   //取得所有的记录数
   $sql = "SELECT COUNT(*) FROM forum_topic";
-  $result = mysql_query($sql);
-  $row = mysql_fetch_row($result);
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_row($result);
   $total = $row[0];
   $nextpage = 0;
   //计算后一页

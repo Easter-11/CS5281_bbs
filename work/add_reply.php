@@ -20,8 +20,8 @@ header("Content-type: text/html; charset=utf-8");
 
   //验证帖子已经存在，未被锁定
   $sql = "SELECT * from forum_topic WHERE id='$id'";
-  $result = mysql_query($sql);
-  $topic_info = mysql_fetch_array($result);
+  $result = $mysqli->query($sql);
+  $topic_info = $result->fetch_array($result);
 
   if (!$topic_info)
   {
@@ -32,8 +32,8 @@ header("Content-type: text/html; charset=utf-8");
   //取得用户信息
   $username = $_SESSION['username'];
   $sql = "SELECT * from forum_user WHERE username='$username'";
-  $result = mysql_query($sql);
-  $user_info = mysql_fetch_array($result);
+  $result = $mysqli->query($sql);
+  $user_info = $result->fetch_array($result);
 
   //取得提交过来的数据
   $reply_name=$_SESSION['username'];
@@ -49,8 +49,8 @@ header("Content-type: text/html; charset=utf-8");
   //取得reply_id的最大值
   $sql = "SELECT Count(reply_id) AS MaxReplyId 
 		FROM forum_reply WHERE topic_id='$id'";
-  $result=mysql_query($sql);
-  $rows=mysql_fetch_row($result);
+  $result=$mysqli->query($sql);
+  $rows=$result->fetch_row($result);
 
   //将reply_id最大值+1，如果没有该值，则设置为1。
   if ($rows)
@@ -66,13 +66,13 @@ header("Content-type: text/html; charset=utf-8");
 		reply_email, reply_detail, reply_datetime)
 		VALUES('$id', '$Max_id', '$reply_name', 
 		'$reply_email', '$reply_detail', NOW())";
-  $result=mysql_query($sql);
+  $result=$mysqli->query($sql);
 
   if($result)
   {
 	//更新reply字段
 	$sql="UPDATE forum_topic SET reply='$Max_id' WHERE id='$id'";
-	$result=mysql_query($sql);
+	$result=$mysqli->query($sql);
 
 	//页面跳转
 	header("Location: view_topic.php?id=$id");

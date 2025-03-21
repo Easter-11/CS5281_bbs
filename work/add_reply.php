@@ -21,7 +21,7 @@ header("Content-type: text/html; charset=utf-8");
   //验证帖子已经存在，未被锁定
   $sql = "SELECT * from forum_topic WHERE id='$id'";
   $result = $mysqli->query($sql);
-  $topic_info = $result->fetch_array($result);
+  $topic_info = $result->fetch_array();
 
   if (!$topic_info)
   {
@@ -33,7 +33,7 @@ header("Content-type: text/html; charset=utf-8");
   $username = $_SESSION['username'];
   $sql = "SELECT * from forum_user WHERE username='$username'";
   $result = $mysqli->query($sql);
-  $user_info = $result->fetch_array($result);
+  $user_info = $result->fetch_array();
 
   //取得提交过来的数据
   $reply_name=$_SESSION['username'];

@@ -29,7 +29,7 @@ header("Content-type: text/html; charset=utf-8");
 	$username = $_SESSION['username'];
 	$sql = "SELECT * from forum_user WHERE username='$username'";
 	$result = $mysqli->query($sql);
-	$info = $result->fetch_array($result);
+	$info = $result->fetch_array();
 
 	//取得传递来的值
 	//标题

@@ -51,7 +51,7 @@ header("Content-type: text/html; charset=utf-8");
 
 <?php
   //循环输出输出记录列表
-  while($rows=$result->fetch_array($result))
+  while($rows = $result->fetch_array())
   { 
 ?>
 <tr bgcolor="#ffc">

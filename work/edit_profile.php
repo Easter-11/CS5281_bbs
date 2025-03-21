@@ -26,7 +26,7 @@ header("Content-type: text/html; charset=utf-8");
   //查询用户资料
   $sql="SELECT * FROM forum_user WHERE username = '$id'";
   $result=$mysqli->query($sql);
-  $rows=$result->fetch_array($result);
+  $rows=$result->fetch_array();
 ?>
 
 <fieldset>

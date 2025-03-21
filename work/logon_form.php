@@ -45,6 +45,7 @@ if (isset($_POST["submit"]) && $_POST['submit']) {
     $hashedPassword = md5($password); // 使用 MD5 进行哈希
     $res = password_verify($hashedPassword, $row['password']);
 
+    
     // 验证密码
     if ($hashedPassword===$row['password']) {
       // 将用户名存入SESSION中

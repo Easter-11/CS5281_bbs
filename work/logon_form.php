@@ -18,7 +18,7 @@ if (isset($_POST["submit"]) && $_POST['submit']) {
 
   // 检查用户名和密码是否为空
   if (empty($username) || empty($password)) {
-    ExitMessage("用户名和密码不能为空！", "logon_form.php");
+    ExitMessage("Username and Password can not be empty！", "logon_form.php");
   }
 
   // 使用预处理语句防止SQL注入
@@ -26,7 +26,7 @@ if (isset($_POST["submit"]) && $_POST['submit']) {
   $stmt = $mysqli->prepare($sql);
 
   if ($stmt === false) {
-    die("查询准备失败: " . $mysqli->error);
+    die("Query preparation failed: " . $mysqli->error);
   }
 
   // 绑定参数
@@ -41,23 +41,23 @@ if (isset($_POST["submit"]) && $_POST['submit']) {
   // 检查用户名和密码是否匹配
   if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
-    
+
     $hashedPassword = md5($password); // 使用 MD5 进行哈希
     $res = password_verify($hashedPassword, $row['password']);
 
-    
+
     // 验证密码
-    if ($hashedPassword===$row['password']) {
+    if ($hashedPassword === $row['password']) {
       // 将用户名存入SESSION中
       $_SESSION['username'] = $row['username'];
       // 跳转到论坛主页面
       header("Location: main_forum.php");
       exit;
     } else {
-      ExitMessage("用户名或者密码错误！", "logon_form.php");
+      ExitMessage("Username or password is incorrect!", "logon_form.php");
     }
   } else {
-    ExitMessage("用户名或者密码错误！", "logon_form.php");
+    ExitMessage("Username or password is incorrect!", "logon_form.php");
   }
 
   // 关闭语句
@@ -68,26 +68,26 @@ if (isset($_POST["submit"]) && $_POST['submit']) {
 ?>
 
   <div id="Login_in">
-    <h2 style="text-align:center; margin-top:50px;">用户登录</h2>
+    <h2 style="text-align:center; margin-top:50px;">User login</h2>
     <form method="post" action="logon_form.php">
-      <table width="600">
+      <table width="700">
         <tr>
-          <td width="100">用户名：</td>
+          <td width="100">Username：</td>
           <td><input name="username" type="text" required></td>
-          <td width="300">
-            <p class="msg"><i class="ati"></i>请输入用户名</p>
+          <td width="400">
+            <p class="msg"><i class="ati"></i>Please enter your username</p>
           </td>
         </tr>
         <tr>
-          <td>密　码：</td>
+          <td>Password: </td>
           <td><input name="password" type="password" required></td>
           <td>
-            <p class="msg"><i class="ati"></i>请输入密码</p>
+            <p class="msg"><i class="ati"></i>Please enter your password</p>
           </td>
         </tr>
       </table>
       <section class="button">
-        <input type="submit" name="submit" value="登录" class="button">
+        <input type="submit" name="submit" value="Log In" class="button">
       </section>
     </form>
   </div>

@@ -10,41 +10,41 @@ header("Content-type: text/html; charset=utf-8");
   include('../includes/header.inc.php');
 ?>
 <div class="createUser">
-<h2>注册</h2>
+<h2>Register</h2>
 
 <fieldset style="background:url(../images/header-background2.png) left" >
 <legend>Register</legend>
 <form id="Register" method="post" action="add_user.php">
-<table width="800" >
+<table width="850" >
   <tr>
-	<td width="100" ><label for="username">用户名:</label></td>
+	<td width="100" ><label for="username">Username:</label></td>
 	<td><input name="username" type="text"></td>
-    <td width="400"><p class="msg"><i class="ati"></i>请输入6-26个字符长度</p></td>
+    <td width="400"><p class="msg"><i class="ati"></i>Please enter 6-26 characters</p></td>
   </tr>
   <tr>
-    <td width="100"><label for="password">密 码:</label></td>
+    <td width="100"><label for="password">Password:</label></td>
     <td><input name="password" type="password"></td>
-      <td width="400"><p class="msg">密码长度不大于16，使用组合字符数字等等</p></td>
+      <td width="400"><p class="msg">Password length should not exceed 16 characters, using a combination of letters, numbers, etc</p></td>
   </tr>
   <tr>
-    <td width="100"><label for="password">确认密码:</label></td>
+    <td width="150"><label for="password">Confirm Password:</label></td>
     <td><input name="password" type="password" disabled=""></td>
-      <td width="400"><p class="msg">两次密码应当一致</p></td>
+      <td width="400"><p class="msg">The two passwords should be the same</p></td>
   </tr>
   <tr>
     <td width="100"><label for="email">E-mail:</label></td>
     <td><input name="email" type="text"></td>
-      <td width="400"><p class="msg"><i class="ati"></i>请输入6-26个字符长度</p></td>
+      <td width="400"><p class="msg"><i class="ati"></i>Please enter 6-26 characters</p></td>
   </tr>
   <tr>
-    <td width="100"><label for="realname">真实姓名:</label></td>
+    <td width="100"><label for="realname">Nickname:</label></td>
     <td><input name="realname" type="text"></td>
-      <td width="400"><p class="msg">昵称应当唯一</p></td>
+      <td width="400"><p class="msg">Nickname should be unique</p></td>
   </tr>
 </table>
 <section class="button">
-<input type="submit" name="Submit" value="提交注册" class="button"/>
-<input type="reset" name="Submit2" value="清空" class="button"/>
+<input type="submit" name="Submit" value="Submit" class="button"/>
+<input type="reset" name="Submit2" value="Clear" class="button"/>
 </section>
 </form>
 </fieldset>

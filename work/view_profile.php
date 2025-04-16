@@ -19,7 +19,7 @@ header("Content-type: text/html; charset=utf-8");
   $rows = $result->fetch_assoc();
 
   if (!$rows) {
-    ExitMessage("用户记录不存在！", "index.php");
+    ExitMessage("User record does not exist!", "index.php");
   }
 
   // 计算用户发表的帖子数量
@@ -44,7 +44,7 @@ header("Content-type: text/html; charset=utf-8");
 
 <?php include('../includes/header.inc.php'); ?>
 <div class="user_info">
-<h2>查看 <b><?php echo htmlspecialchars($rows['username']); ?></b> 个人资料:</h2>
+<h2><b><?php echo htmlspecialchars($rows['username']); ?></b> profile</h2>
 
 <?php
   // 格式化电子邮件地址
@@ -55,24 +55,23 @@ header("Content-type: text/html; charset=utf-8");
 ?>
 
 <fieldset>
-  <legend>个人资料</legend>
+  <legend>Profile</legend>
   <br>
   <table width="300">
     <tr>
-      <td width="100"><strong>真实姓名:</strong></td>
+      <td width="100"><strong>Realname:  </strong></td>
       <td width="200"><?php echo htmlspecialchars($rows['realname']); ?></td>
     </tr>
     <tr>
-      <td><strong>电子邮件:</strong></td>
-      <td><?php echo htmlspecialchars($mail); ?></td>
+      <td><strong>E-mail:  </strong></td><td><?php echo htmlspecialchars($mail); ?></td>
     </tr>
     <tr>
-      <td><strong>发贴数量:</strong></td>
+      <td><strong>PostCount:  </strong></td>
       <td><?php echo $num_count; ?></td>
     </tr>
   </table>
   <br>
-  <input type="button" value="返回首页" onclick="location.href='main_forum.php'">
+  <input type="button" value="Back" onclick="location.href='main_forum.php'">
 </fieldset>
 </div>
 <?php include('../includes/footer.inc.php'); ?>

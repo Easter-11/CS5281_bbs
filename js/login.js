@@ -14,14 +14,14 @@ window.onload=function(){
     //用户名
      aName.onfocus=function(){
         aName_msg.style.display="inline";
-        aName_msg.innerHTML='<i class="icon-info"></i>请输入用户名';
+        aName_msg.innerHTML='<i class="icon-info"></i>Please enter the username';
     }
      aName.onblur = function () {
         if (this.value == "") {
-            aName_msg.innerHTML = '<i class="icon-cross"></i>不能为空';
+            aName_msg.innerHTML = '<i class="icon-cross"></i>Cannot be empty';
             aName.ok = false;
         } else {
-            aName_msg.innerHTML = '<i class="icon-checkmark"></i>初检通过了';
+            aName_msg.innerHTML = '<i class="icon-checkmark"></i>Initial inspection passed';
             aName.ok = true;
         }
 
@@ -30,12 +30,12 @@ window.onload=function(){
      //密码验证
     apsw.onfocus=function(){
         apsw_msg.style.display="inline";
-        apsw_msg.innerHTML='<i class="icon-info"></i>请输入6-16个字符长度的密码';
+        apsw_msg.innerHTML='<i class="icon-info"></i>Please enter 6-16 characters';
     }
     apsw.onblur=function(){
         apsw_msg.innerHTML="";
         if(this.value==""){
-            apsw_msg.innerHTML='<i class="icon-cross"></i>不能为空';
+            apsw_msg.innerHTML='<i class="icon-cross"></i>Cannot be empty';
         }else{
         	apsw.ok = true;
         }

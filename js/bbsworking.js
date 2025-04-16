@@ -23,14 +23,14 @@ window.onload=function(){
     //用户名验证
    oName.onfocus = function () {
         oName_msg.style.display = "inline";
-        oName_msg.innerHTML = '<i class="icon-info"></i>用户名需唯一';
+        oName_msg.innerHTML = '<i class="icon-info"></i>Username must be unique';
     }
     oName.onblur = function () {
         if (this.value == "") {
-            oName_msg.innerHTML = '<i class="icon-cross"></i>不能为空';
+            oName_msg.innerHTML = '<i class="icon-cross"></i>Cannot be empty';
             oName.ok = false;
         } else {
-            oName_msg.innerHTML = '<i class="icon-checkmark"></i>初检通过了';
+            oName_msg.innerHTML = '<i class="icon-checkmark"></i>Initial inspection passed';
             oName.ok = true;
         }
 
@@ -39,15 +39,15 @@ window.onload=function(){
     //邮箱验证
     email.onfocus = function () {
         email_msg.style.display = "inline";
-        email_msg.innerHTML = '<i class="icon-info"></i>请输入一个可用的邮箱';
+        email_msg.innerHTML = '<i class="icon-info"></i>Please enter an available email address';
     }
     email.onblur = function () {
         var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         email_msg.innerHTML = "";
         if (this.value == "") {
-            email_msg.innerHTML = '<i class="icon-cross"></i>不能为空';
+            email_msg.innerHTML = '<i class="icon-cross"></i>Cannot be empty';
         } else if (!re.test(this.value)) {
-            email_msg.innerHTML = '<i class="icon-cross"></i>邮箱格式不正确';
+            email_msg.innerHTML = '<i class="icon-cross"></i>Invalid email format';
         } else {
             email_msg.innerHTML = '<i class="icon-checkmark"></i>OK';
             email.ok = true;
@@ -56,28 +56,28 @@ window.onload=function(){
     //密码验证
     psw.onfocus = function () {
         psw_msg.style.display = "block";
-        psw_msg.innerHTML = '<i class="icon-info"></i>请输入6-16个字符长度,以解锁下一栏';
+        psw_msg.innerHTML = '<i class="icon-info"></i>Please enter 6-16 characters';
     }
     psw.onkeyup = function () {
         if (this.value.length > 6) {
             psw2.removeAttribute("disabled");
             psw2_msg.style.display = "inline";
-            psw2_msg.innerHTML = '<i class="icon-info"></i>再次输入密码';
+            psw2_msg.innerHTML = '<i class="icon-info"></i>Re-enter the password';
         }
     }
     psw.onblur = function () {
         psw_msg.innerHTML = "";
 
         if (this.value == "") {
-            psw_msg.innerHTML = '<i class="icon-cross"></i>不能为空';
+            psw_msg.innerHTML = '<i class="icon-cross"></i>Cannot be empty';
         } 
         else {
             if ((psw2.value)&&this.value != psw2.value) {
-                psw_msg.innerHTML = '<i class="icon-cross"></i>两次密码不相同';
+                psw_msg.innerHTML = '<i class="icon-cross"></i>The passwords do not match';
                 psw.ok = false;
             }
             else if(this.value.length <= 6 || this.value.length > 16) {
-                psw_msg.innerHTML = '<i class="icon-cross"></i>密码长度应在6-16个字符';
+                psw_msg.innerHTML = '<i class="icon-cross"></i>Password length should be between 6 and 16 characters';
             } 
             else {
                 psw_msg.innerHTML = '<i class="icon-checkmark"></i>OK';
@@ -89,18 +89,18 @@ window.onload=function(){
     }
     //确认密码
     psw2.onfocus = function () {
-        psw2_msg.innerHTML = '<i class="icon-info"></i>请确认密码';
+        psw2_msg.innerHTML = '<i class="icon-info"></i>Please confirm the password';
     }
     psw2.onkeyup = function () {
         psw2_msg.innerHTML = "";
     }
     psw2.onblur = function () {
         if (this.value == "") {
-            psw2_msg.innerHTML = '<i class="icon-cross"></i>不能为空';
+            psw2_msg.innerHTML = '<i class="icon-cross"></i>Cannot be empty';
         } else if (this.value != psw.value) {
             psw.value = "";
             psw2.value = "";
-            psw2_msg.innerHTML = '<i class="icon-cross"></i>两次输入不一致，请重新输入!';
+            psw2_msg.innerHTML = '<i class="icon-cross"></i>The passwords do not match,please re-enter!!';
 
         } else {
             psw2_msg.innerHTML = '<i class="icon-checkmark"></i>OK';
@@ -111,14 +111,14 @@ window.onload=function(){
     //真实名验证
    nime.onfocus = function () {
         nime_msg.style.display = "inline";
-        nime_msg.innerHTML = '<i class="icon-info"></i>input your name, sir';
+        nime_msg.innerHTML = '<i class="icon-info"></i>input your name';
     }
     nime.onblur = function () {
         if (this.value == "") {
-            nime_msg.innerHTML = '<i class="icon-cross"></i>不能为空喔';
+            nime_msg.innerHTML = '<i class="icon-cross"></i>Cannot be empty';
             nime.ok = false;
         } else {
-            nime_msg.innerHTML = '<i class="icon-checkmark"></i>欢迎加入';
+            nime_msg.innerHTML = '<i class="icon-checkmark"></i>Welcome';
             nime.ok = true;
         }
 

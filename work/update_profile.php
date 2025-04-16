@@ -9,7 +9,7 @@ header("Content-type: text/html; charset=utf-8");
   require('../config.inc.php');
   include ('../includes/header.inc.php');
   if (!$_SESSION['username']) {
-	ExitMessage("请<b>登录</b>后执行该请求。", "logon_form.php");
+	ExitMessage("Please <b>log in</b> to execute this request.", "logon_form.php");
   }
 
   //用户名
@@ -43,18 +43,18 @@ header("Content-type: text/html; charset=utf-8");
   if($result){
 ?>
 <div class="updateUser">
-<h2>个人资料更新成功</h2>
+<h2>Profile updated successfully</h2>
 
 <p>
-	您的个人资料已经被成功更新。 
-	请<a href="main_forum.php">返回</a>论坛主页。
+Your profile has been updated successfully.
+	Please<a href="main_forum.php">Back</a> home。
 </p>
 </div>
 
 <?php
   }
   else {
-	ExitMessage("记录不存在！");
+	ExitMessage("The record does not exist!");
   }
 include ('../includes/footer.inc.php');
 ?>

@@ -41,7 +41,7 @@ function CheckEmail($email)
 function ExitMessage($message, $url = '')
 {
     echo '<p class="message">' . htmlspecialchars($message) . '<br>';
-    echo $url ? '<a href="' . htmlspecialchars($url) . '">返回</a>' : '<a href="create_user.php">返回</a>';
+    echo $url ? '<a href="' . htmlspecialchars($url) . '">Back</a>' : '<a href="create_user.php">Back</a>';
     echo '</p>';
     exit;
 }

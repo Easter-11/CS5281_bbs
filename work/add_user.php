@@ -20,15 +20,15 @@ $realname  = ClearSpecialChars($_POST['realname']);
 
 //检验数据的合法性
 if (!$username) {
-  ExitMessage('请输入用户名！');
+  ExitMessage('Please enter your username!');
 }
 if (!$password) {
-  ExitMessage('请输入密码！');
+  ExitMessage('Please enter your password!');
 }
 if (!$email) {
-  ExitMessage('请输入电子邮件地址！');
+  ExitMessage('Please enter your email!');
 } elseif (!checkEmail($email)) {
-  ExitMessage('电子邮件地址格式错误！');
+  ExitMessage('Email format error!');
 }
 
 //对密码进行MD5加密
@@ -40,14 +40,14 @@ $result = $mysqli->query($sql);
 
 // 检查查询是否成功
 if ($result === false) {
-  die("查询失败: " . $mysqli->error);
+  die("Query failed: " . $mysqli->error);
 }
 
 // 获取查询结果的行数
 $num_rows = $result->num_rows;
 
 if ($num_rows > 0) {
-  ExitMessage('<p class="error">该用户已经存在！点击返回重新注册</p>');
+  ExitMessage('<p class="error">This user already exists! Click back to re-register</p>');
 }
 
 //创建用户
@@ -58,12 +58,12 @@ $result = $mysqli->query($sql);
 if ($result) {
 ?>
   <div class="addUser">
-    <h2>创建用户</h2>
+    <h2>Create User</h2>
 
-    <p>您的用户账号已经建立，请点击<a href="logon_form.php">这里</a>登录。</p>
+    <p>Your user account has been created,please click<a href="logon_form.php">here</a>log in.</p>
   </div>
 <?php
 } else {
-  ExitMessage("数据库错误！");
+  ExitMessage("Database error!");
 }
 ?>

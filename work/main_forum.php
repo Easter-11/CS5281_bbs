@@ -39,14 +39,14 @@ header("Content-type: text/html; charset=utf-8");
   $result = $mysqli->query($sql);
 ?>
 <div class="list">
-<h2>主题列表</h2>
+<h2>Topic List</h2>
 <table width="80%"  align="center" 
 	cellpadding="3" cellspacing="0" >
 <tr bgcolor="#cc9">
-<td width="40%" align="center" style="border:0;">帖子</td>
-<td width="8%" align="center" style="border:0;">访问</td>
-<td width="8%" align="center" style="border:0;">回复</td>
-<td width="24%" align="center" style="border:0;">发表日期</td>
+<td width="40%" align="center" style="border:0;">Post</td>
+<td width="8%" align="center" style="border:0;">View</td>
+<td width="8%" align="center" style="border:0;">Reply</td>
+<td width="24%" align="center" style="border:0;">Published Date</td>
 </tr>
 
 <?php
@@ -105,7 +105,7 @@ header("Content-type: text/html; charset=utf-8");
   //取得所有的记录数
   $sql = "SELECT COUNT(*) FROM forum_topic";
   $result = $mysqli->query($sql);
-  $row = $result->fetch_row($result);
+  $row = $result->fetch_row();
   $total = $row[0];
   $nextpage = 0;
   //计算后一页
@@ -131,7 +131,7 @@ header("Content-type: text/html; charset=utf-8");
 	//上一页
 	if($prevpage)
 	{
-		echo "<a href=\"?page={$prevpage}\"><< 上一页</a> ";
+		echo "<a href=\"?page={$prevpage}\"><< Previous</a> ";
 	}else{
 		echo "&nbsp";
 	}
@@ -139,19 +139,19 @@ header("Content-type: text/html; charset=utf-8");
 	//后一页
 	if($nextpage)
 	{
-		echo "<a href=\"?page={$nextpage}\">下一页 >></a> ";
+		echo "<a href=\"?page={$nextpage}\">Next >></a> ";
 	}else{
 		echo "&nbsp";
 	}
   }
 ?>
-<input type="button" onClick="location.href='create_topic.php'" value="创建新帖子">
+<input type="button" onClick="location.href='create_topic.php'" value="New Post">
 </p>
 
 
 <section class="message">
 <h3>Prompt</h3>
-<img src="../images/lamp.png" alt="Sticky" border="0" align="absmiddle"> 置顶的帖子<br>
+<img src="../images/lamp.png" alt="Sticky" border="0" align="absmiddle">  Pinned Post <br>
 </section>
 
 

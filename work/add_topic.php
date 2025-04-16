@@ -13,11 +13,10 @@ header("Content-type: text/html; charset=utf-8");
 	//如果用户未登录，显示错误信息
 	include('../includes/header.inc.php');	//头文件
 ?>
-<h2>创建新贴</h2>
+<h2>Create a new post</h2>
 
-<h3>未注册的用户</h3>
-<p>对不起，请<a href="create_user.php">注册</a>新用户，
-	或者进行<a href="logon_form.php">登录</a>。
+<h3>Unregistered User</h3>
+<p>Sorry, please <a href="create_user.php">register </a>a new user, or <a href="logon_form.php">login</a>。
 </p>
 
 <?php 
@@ -59,11 +58,11 @@ header("Content-type: text/html; charset=utf-8");
 	//数据合法性检查
 	if (!$topic)
 	{
-		ExitMessage("请输入标题！");
+		ExitMessage("Please enter a title!");
 	}
 	if (!$detail)
 	{
-		ExitMessage("请输入正文！");
+		ExitMessage("Please enter the text!");
 	}
      
 	//判断是否为锁定状态
@@ -92,7 +91,7 @@ header("Content-type: text/html; charset=utf-8");
 	}
 	else 
 	{
-		ExitMessage("数据库错误！");
+		ExitMessage("Database error!");
 	}
 }
 ?>

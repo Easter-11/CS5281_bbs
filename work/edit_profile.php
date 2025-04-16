@@ -13,14 +13,14 @@ header("Content-type: text/html; charset=utf-8");
 
   //如果用户没有登录
   if (!$_SESSION['username']) {
-	ExitMessage("请<b>登录</b>后执行该请求。", "logon_form.php");
+	ExitMessage("Please <b>log in</b> to execute this request。", "logon_form.php");
   }
 ?>
 
 <?php include('../includes/header.inc.php'); ?>
 <div class="editUser">
 
-<h2>编辑个人资料</h2>
+<h2>Edit Profile</h2>
 
 <?php
   //查询用户资料
@@ -30,32 +30,31 @@ header("Content-type: text/html; charset=utf-8");
 ?>
 
 <fieldset>
-	<legend>个人资料</legend>
-<form method="post" action="update_profile.php">
+	<legend>Profile</legend>
+<form method="ost" action="update_profile.php">
 
 <table>
   <tr>
-    <td>登录用户：</td>
+    <td>Login User：</td>
     <td><b><? echo $rows['username']; ?></b></td>
   </tr>
   <tr>
-	<td>更新密码:</td><td><input name="password" type="password">
-	密码留空，将不被更新。</td>
+	<td>Update Password:</td><td><input name="password" type="password">Leave the password blank and will not be updated.</td>
   </tr>
   <tr>
-	<td>电子邮件:</td>
+	<td>email:</td>
 	<td><input name="email" type="text"
 			value="<?php echo $rows['email']; ?>"></td>
   </tr>
   <tr>
-	<td>真实姓名:</td>
+	<td>realname:</td>
 	<td><input name="realname" type="text"
 			 value="<?php echo $rows['realname']; ?>"></td>
   </tr>
 </table>
 <br><br>
 <section class="button">
-<input type="submit" name="submit" value="提交" class="button"> 
+<input type="submit" name="submit" value="submit" class="button"> 
 </section>
 </form>
 </fieldset>

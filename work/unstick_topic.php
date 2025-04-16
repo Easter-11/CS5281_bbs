@@ -23,10 +23,10 @@
 		header("Location: view_topic.php?id=$id");
 	}
 	else {
-		ExitMessage("数据库操作错误！");
+		ExitMessage("Database operation error!");
 	}
 
   } else {
-	ExitMessage("你没有管理权限！");
+	ExitMessage("You don't have administrative privileges!");
   }
 ?>

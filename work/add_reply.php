@@ -25,7 +25,7 @@ header("Content-type: text/html; charset=utf-8");
 
   if (!$topic_info)
   {
-	ExitMessage("帖子记录不存在！", "main_forum.php");
+	ExitMessage("Post record not found!", "main_forum.php");
   }
 
 
@@ -43,14 +43,15 @@ header("Content-type: text/html; charset=utf-8");
   if (!$reply_detail)
   {
     include('../includes/header.inc.php');
-	ExitMessage("没有回贴记录！", "main_forum.php");
+	ExitMessage("No replies yet! ", "main_forum.php");
   }
 
   //取得reply_id的最大值
   $sql = "SELECT Count(reply_id) AS MaxReplyId 
 		FROM forum_reply WHERE topic_id='$id'";
   $result=$mysqli->query($sql);
-  $rows=$result->fetch_row($result);
+  $rows = $result->fetch_row();
+
 
   //将reply_id最大值+1，如果没有该值，则设置为1。
   if ($rows)
@@ -78,7 +79,7 @@ header("Content-type: text/html; charset=utf-8");
 	header("Location: view_topic.php?id=$id");
   }
   else {
-	ExitMessage("记录不存在");
+	ExitMessage("Post record not found!");
   }
 
 ?>

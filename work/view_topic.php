@@ -76,12 +76,23 @@ $sticky = $rows['sticky'];
         - <?php echo htmlspecialchars($rows['reply_datetime']); ?>
       </dt>
       <dd>
-        <p><?php
-            // 输出整理好的内容
-            echo nl2br(htmlspecialchars($rows['reply_detail']));
-            ?></p>
+        <div style="display: flex; align-items: between;">
+          <p style="margin-right: 10px;"><?php echo nl2br(htmlspecialchars($rows['reply_detail'])); ?></p>
+
+          <?php if (isset($_SESSION['username']) && $_SESSION['username'] == ADMIN_USER) { ?>
+            <form method="post" action="del_reply.php"
+              onsubmit="return confirm('Are you sure you want to delete this reply?');"
+              style="display:inline;">
+              <input type="hidden" name="reply_id" value="<?php echo $rows['reply_id']; ?>">
+              <input type="hidden" name="topic_id" value="<?php echo $id; ?>">
+              <input type="submit" value="Delete" class="button" style="margin-top: 5px;">
+            </form>
+          <?php } ?>
+        </div>
+
       </dd>
     </section>
+
 
 <?php
           } // 结束循环
@@ -110,7 +121,7 @@ $sticky = $rows['sticky'];
       <input name="id" type="hidden" value="<?php echo htmlspecialchars($id); ?>">
       <table class="reply">
         <tr>
-          <td valign="top">Post<br>Reply</td>
+          <td valign="top">Reply :
           <td>
             <textarea class="coolscrollbar" name="reply_detail" cols="80" rows="5"></textarea>
           </td>
@@ -121,7 +132,7 @@ $sticky = $rows['sticky'];
       </table>
       <br />
       <section class="button">
-        <input type="submit" name="Submit" value="Reply" class="button" />
+        <input type="submit" name="Submit" value="Submit" class="button" />
       </section>
     </form>
   <?php } ?>

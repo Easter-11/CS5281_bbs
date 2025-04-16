@@ -37,9 +37,9 @@ header("Content-type: text/html; charset=utf-8");
       <td width="400"><p class="msg"><i class="ati"></i>Please enter 6-26 characters</p></td>
   </tr>
   <tr>
-    <td width="100"><label for="realname">Nickname:</label></td>
+    <td width="100"><label for="realname">Realname:</label></td>
     <td><input name="realname" type="text"></td>
-      <td width="400"><p class="msg">Nickname should be unique</p></td>
+      <td width="400"><p class="msg"Realname should be unique</p></td>
   </tr>
 </table>
 <section class="button">

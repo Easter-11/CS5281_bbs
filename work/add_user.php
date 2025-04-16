@@ -47,20 +47,24 @@ if ($result === false) {
 $num_rows = $result->num_rows;
 
 if ($num_rows > 0) {
-  ExitMessage('<p class="error">This user already exists! Click back to re-register</p>');
+  ExitMessage("This user already exists! Click back to re-register!");
 }
 
 //创建用户
+$password = md5($password);  // 对用户输入的密码进行md5加密
+
 $sql = "INSERT INTO forum_user (username, password, email, realname, regdate)
-		VALUES('$username', '$password', '$email', '$realname', NOW())";
+        VALUES('$username', '$password', '$email', '$realname', NOW())";
+
 $result = $mysqli->query($sql);
+
 
 if ($result) {
 ?>
   <div class="addUser">
     <h2>Create User</h2>
 
-    <p>Your user account has been created,please click<a href="logon_form.php">here</a>log in.</p>
+    <p>Your user account has been created,please click<a href="logon_form.php"> here </a>log in.</p>
   </div>
 <?php
 } else {

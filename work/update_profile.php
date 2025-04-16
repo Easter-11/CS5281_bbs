@@ -47,7 +47,7 @@ header("Content-type: text/html; charset=utf-8");
 
 <p>
 Your profile has been updated successfully.
-	Please<a href="main_forum.php">Back</a> home。
+	Please<a href="main_forum.php"> back</a> home。
 </p>
 </div>
 

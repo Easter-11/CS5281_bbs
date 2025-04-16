@@ -39,7 +39,7 @@ header("Content-type: text/html; charset=utf-8");
     <td><b><? echo $rows['username']; ?></b></td>
   </tr>
   <tr>
-	<td>Update Password:</td><td><input name="password" type="password">Leave the password blank and will not be updated.</td>
+	<td>Update Password:</td><td><input name="password" type="password"> Leave the password blank and will not be updated.</td>
   </tr>
   <tr>
 	<td>email:</td>
